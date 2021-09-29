@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string>
+#include <vector>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <unordered_map>
+#include <list>
+#include <deque>
+#include <memory>
+#include <utility>
+#include <queue>
+#include <math.h>
+#include <ctime>
+#include <random>
+#include <functional>
+
+using namespace std;
+
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	
+	vector<int> v(8);
+
+	for (int i = 1; i < 8; i++) {
+		cin >> v[i];
+	}
+
+	int s1 = 0, s2 = 0, s3 = 0;
+
+	s1 = (0 + v[1] + v[3] + v[5] + v[7])%2;
+	s2 = (0 + v[2] + v[3] + v[6] + v[7])%2;
+	s3 = (0 + v[4] + v[5] + v[6] + v[7]) % 2;
+
+	int x = s1 + 2 *s2 + 4 * s3;
+
+	if (x == 0) {
+		cout << "all clear";
+	}
+	else{
+		cout << "you wrong in " << x << " bit\n";
+		v[x] ^= 1;
+		for (int x = 1;x < 8;x++)
+			cout << v[x];
+	}
+
+	return 0;
+}
